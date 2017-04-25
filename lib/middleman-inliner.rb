@@ -14,8 +14,8 @@ class Inliner < Middleman::Extension
           if p.source_file.nil?
             puts "*" * 500
             puts p
-            logger.info p
-            logger.info "*" * 500
+            logger.debug p
+            logger.debug "*" * 500
           end
           p.source_file.include?(name)
         end.first
