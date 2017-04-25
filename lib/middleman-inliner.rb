@@ -11,7 +11,12 @@ class Inliner < Middleman::Extension
         name += ".css" unless name.include?(".css")
 
         css_path = sitemap.resources.select do |p|
-          logger.info p.path if p.source_file.nil?
+          if p.source_file.nil?
+            puts "*" * 500
+            puts p
+            logger.info p
+            logger.info "*" * 500
+          end
           p.source_file.include?(name)
         end.first
 
